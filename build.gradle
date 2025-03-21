@@ -1,0 +1,43 @@
+plugins {
+    id 'java'
+}
+
+group 'fr.heria.games.oneshot'
+version '1.0-SNAPSHOT'
+compileJava.options.encoding 'UTF-8'
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+    maven {
+        url 'https://hub.spigotmc.org/nexus/content/repositories/snapshots/'
+    }
+    maven {
+        url 'https://repo.glaremasters.me/repository/concuncan/'
+    }
+}
+
+dependencies {
+    compileOnly 'ch.qos.logback:logback-classic:1.5.6'
+    compileOnly 'org.slf4j:slf4j-api:2.0.13'
+    compileOnly 'org.spigotmc:plugin-annotations:1.2.3-SNAPSHOT'
+    compileOnly 'org.projectlombok:lombok:1.18.34'
+    compileOnly 'org.spigotmc:spigot:1.8.8-R0.1-SNAPSHOT'
+    compileOnly 'com.grinderwolf:slimeworldmanager-plugin:2.2.1'
+    compileOnly 'com.github.ben-manes.caffeine:caffeine:3.1.8'
+    compileOnly 'fr.heria:api:1.0.0'
+    compileOnly 'fr.heria.games.engine:api:1.0.0'
+
+    annotationProcessor 'org.projectlombok:lombok:1.18.34'
+    annotationProcessor 'org.spigotmc:plugin-annotations:1.2.3-SNAPSHOT'
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+}
+
+tasks.withType(Test).tap {
+    configureEach {
+        systemProperty "file.encoding", "UTF-8"
+    }
+}

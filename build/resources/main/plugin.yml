@@ -1,0 +1,4 @@
+name: HeriaOneShot
+version: 1.0.0
+main: fr.heriamc.games.oneshot.OneShotAddon
+depend: [HeriaGameEngine]
